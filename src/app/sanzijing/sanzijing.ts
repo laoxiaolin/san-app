@@ -1,6 +1,7 @@
 export class SZJ {
   id: number;
   line: string;
-  statTime: number;
-  endTime: number;
+  time: number;
+  // statTime: number;
+  // endTime: number;
 }

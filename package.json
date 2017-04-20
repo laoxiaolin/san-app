@@ -17,7 +17,7 @@
     "serve:upgrade": "http-server",
     "build:aot": "ngc -p tsconfig-aot.json && rollup -c rollup-config.js",
     "serve:aot": "lite-server -c bs-config.aot.json",
-    "build:babel": "babel src -d src --extensions \".es6\" --source-maps",
+    "build:babel": "babel src -d dist --extensions \".es6\" --source-maps",
     "copy-dist-files": "node ./copy-dist-files.js",
     "i18n": "ng-xi18n",
     "lint": "tslint ./src/**/*.ts -t verbose"
@@ -80,5 +80,8 @@
     "tslint": "^3.15.1",
     "typescript": "~2.2.0"
   },
-  "repository": {}
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:laoxiaolin/san-app.git"
+  }
 }
