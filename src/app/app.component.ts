@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as http from 'http';
 
 @Component({
   selector: 'my-app',

@@ -3,6 +3,7 @@
     "target": "es5",
     "module": "commonjs",
     "moduleResolution": "node",
+    // "outDir": "../dist",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -10,12 +11,14 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
-      "../node_modules/@types/"
+      "../node_modules/@types/",
+      "../bower_components/@types/"
     ]
   },
   "compileOnSave": true,
   "exclude": [
     "node_modules/*",
+    "bower_components/*",
     "**/*-aot.ts"
   ]
 }
