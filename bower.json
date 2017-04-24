@@ -1,0 +1,28 @@
+{
+  "name": "angular-io-example",
+  "description": "Example project from an angular.io guide.",
+  "main": "",
+  "authors": [
+    "“John Lee <“lee475002@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "child"
+  ],
+  "homepage": "https://github.com/laoxiaolin/san-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "jqurey#^3.2.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "jqurey#^3.2.1"
+  }
+}
