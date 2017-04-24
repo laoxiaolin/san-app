@@ -8,7 +8,7 @@
     "build": "tsc -p src/",
     "serve": "lite-server -c=bs-config.json",
     "gulp": "gulp",
-    "prestart": "npm run build",
+    "prestart": "concurrently \"npm run gulp --default\" \"npm run build\"",
     "start": "concurrently \"npm run build:watch\" \"npm run serve\"",
     "pretest": "npm run build",
     "test": "concurrently \"npm run build:watch\" \"karma start karma.conf.js\"",
