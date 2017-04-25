@@ -1,22 +1,7 @@
-doctype html
-html
-  head
-    - var name = '中国古代文化学习'
-    title= name
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1")
-    link(rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css")
-    link(rel="stylesheet" type="text/css" href="css/styles.css")
+extends includes/layout.pug
 
-    //- polyfills
-    script(src="node_modules/core-js/client/shim.min.js")
-    script(src="node_modules/zone.js/dist/zone.js")
-    script(src="node_modules/systemjs/dist/system.src.js")
-    script(src="systemjs.config.js")
-    script System.import('main.js').catch(function(err){ console.error(err); });
+append tsscripts
+  script System.import('main.js').catch(function(err){ console.error(err); });
 
-
-  body
-    app-root load...
-    script(src="bower_components/jquery/dist/jquery.min.js")
-    script(src="bower_components/bootstrap/dist/js/bootstrap.min.js")
+block content
+  app-root load...

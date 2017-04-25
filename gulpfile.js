@@ -17,10 +17,12 @@ var tsProject   = ts.createProject('./src/tsconfig.json')
 var src_dir = './src',
     dst_dir = './dist';
 var paths = {
-  html:   src_dir + '/*.html',
-  css:    src_dir + '/css/*.css',
-  js:     src_dir + '*/js/*.js',
-  images: src_dir + '*/img/**/*'
+  html:   src_dir + '/**/*.{html,htm}',
+  css:    src_dir + '/**/*.css',
+  js:     src_dir + '/**/*.js',
+  ts:     src_dir + '/**/*.ts',
+  pug:    src_dir + '/**/*.pug',
+  images: src_dir + '/img/**/*'
 };
 
 // 启动Borwser-sync
@@ -42,13 +44,15 @@ gulp.task('browsersync', ['typescript'], ()=>{
       }
     },
     // 
-    logLevel: "debug"
+    logLevel: "debug",
+    //
+    open: false
   
   })
 
-  gulp.watch("./src/**/*.ts", ['typescript']);
-  gulp.watch("./src/**/*.pug", ['pug-watch']);
-  gulp.watch("./src/**/*.{html,htm,css,js}").on('change', reload);
+  gulp.watch(paths.ts, ['typescript']);
+  gulp.watch(paths.pug, ['pug-watch']);
+  gulp.watch("./dist/**/*.{html,htm,css,js}").on('change', reload);
   
 })
 
@@ -58,9 +62,10 @@ gulp.task('pug', ()=>{
         "message": "This app is powered by gulp.pug recipe for BrowserSync"
     };
 
-    return gulp.src('./src/**/*.pug')
+    return gulp.src(paths.pug)
         .pipe(pug({
-            locals: YOUR_LOCALS
+            locals: YOUR_LOCALS,
+            pretty: true
         }))
         .pipe(gulp.dest(dst_dir));
 })
@@ -69,9 +74,10 @@ gulp.task('pug', ()=>{
 // *单独的任务为`.pug`文件
 gulp.task('pug-watch', ['pug'], reload);
 
-// 编译TypeScript
+
+// 编译TypeScript,需要先编译pug文件
 gulp.task('typescript', ['pug'], ()=>{
-  let tsResult =  gulp.src('src/**/*.ts')
+  let tsResult =  gulp.src(paths.ts)
     .pipe(tsProject())
 
   return tsResult.js
@@ -87,13 +93,13 @@ gulp.task('clean', function () {
 gulp.task('css', ()=>{
   return gulp.src(paths.css)
     .pipe(cleanCSS())
-    .pipe(gulp.dest(dst_dir + '/css'))
+    .pipe(gulp.dest(dst_dir))
 })
 
 
 // 拷贝systemjs配置文件
 gulp.task('systemjs', ()=>{
-  return gulp.src(src_dir + '/*.js')
+  return gulp.src(paths.js)
     .pipe(gulp.dest(dst_dir))
 })
 

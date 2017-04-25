@@ -4,8 +4,6 @@ import { LineService } from './line.service';
 @Component({
   selector: 'szj-lines',
   providers: [LineService],
-  template: `
-  <h2>三字经</h2>
-  `
+  templateUrl: './lines.component.html'
 })
 export class LinesComponent { }

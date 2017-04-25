@@ -1,0 +1,23 @@
+doctype html
+html(lang=zh)
+  head
+    - var name = '中国古代文化学习'
+    title= name
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet" type="text/css" href="css/styles.css")
+    block tsscripts
+      //- polyfills
+      script(src="node_modules/core-js/client/shim.min.js")
+      script(src="node_modules/zone.js/dist/zone.js")
+      script(src="node_modules/systemjs/dist/system.src.js")
+      script(src="systemjs.config.js")
+    block scripts
+      script(src="bower_components/jquery/jquery.min.js")
+      script(src="bower_components/bootstrap/dist/js/bootstrap.min.js")
+  body
+    block content
+    block foot
+      footer#footer
+        p Copyright (c) John Lee
