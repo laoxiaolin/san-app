@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import * as http from 'http';
 
 @Component({
-  selector: 'my-app',
-  template: `<h1>环境设置完成 {{name}}</h1>`
+  selector: 'app-root', 
+  templateUrl: './app.component.html'
+  // template: `
+  //   <h1>儿童古文学学习乐园!!!!</h1>
+  //   <szj-lines>loading...</szj-lines>
+
+  //   `
 })
-export class AppComponent { name = 'Angular1'; }
+export class AppComponent { }
