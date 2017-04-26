@@ -1,5 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 import { LinesComponent }  from './sanzijing/lines.component';
@@ -10,7 +11,9 @@ import { Logger }  from './logger.service';
 
 @NgModule({
   imports:      [ 
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    JsonpModule
   ],
   declarations: [ 
     AppComponent,

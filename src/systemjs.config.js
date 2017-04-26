@@ -6,7 +6,9 @@
   System.config({
     paths: {
       // paths serve as alias
-      'npm:': 'node_modules/'
+      'npm:': 'node_modules/',
+      'bower:': 'bower_components/'
+
     },
     // map tells the System loader where to look for things
     map: {
@@ -30,6 +32,7 @@
       '@angular/upgrade/static': 'npm:@angular/upgrade/bundles/upgrade-static.umd.js',
 
       // other libraries
+      // 'jQuery':                    'bower:jquery/jquery.min.js'
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api/bundles/in-memory-web-api.umd.js'
     },

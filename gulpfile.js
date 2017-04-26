@@ -1,6 +1,8 @@
 var gulp     = require('gulp');
 var bs     = require('browser-sync').create();
 var ts     = require('gulp-typescript');
+var sourcemaps = require('gulp-sourcemaps');
+
 var pug    = require('gulp-pug');
 
 
@@ -78,9 +80,11 @@ gulp.task('pug-watch', ['pug'], reload);
 // 编译TypeScript,需要先编译pug文件
 gulp.task('typescript', ['pug'], ()=>{
   let tsResult =  gulp.src(paths.ts)
+    .pipe(sourcemaps.init())
     .pipe(tsProject())
 
   return tsResult.js
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'))
 })
 

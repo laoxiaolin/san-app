@@ -1,7 +1,7 @@
 extends includes/layout.pug
 
-append tsscripts
-  script System.import('main.js').catch(function(err){ console.error(err); });
+append scripts
+  script(src="js/audioaligner.js")
 
 block content
   app-root load...

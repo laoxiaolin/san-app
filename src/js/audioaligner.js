@@ -159,6 +159,7 @@ var AudioAligner = function(target, audio) {
 	// node finder
 	t.textfinder = new TextFinder({root: t.target, skipTags: ['h1','h2','h3'], skipClasses: ['cf','note','v-num']});
 }
+
 AudioAligner.prototype = {
 	
 	currentWordClassName: 'current-word',
@@ -170,27 +171,29 @@ AudioAligner.prototype = {
 		this.timingUrl = timingUrl;
 		
 		this.loadTimings();
-		
 	},
 	
 	loadTimings: function() {
 		var t = this;
 		
-		jQuery.ajax({
+		$.ajax({
 			url: t.timingUrl,
 			dataType: 'json',
 			success: function(json) {
 				
-				t.timingData = json.words;
+				t.timingData = json.lines;
 				
 				t.assignTimings();
 				
 				// start up MP3
 				if (t.audio.setSrc) {
-					t.audio.setSrc(t.audioUrl);
+					t.audio.setSrc(src=t.audioUrl, type="audio/mp3");
 				} else {
 					t.audio.src = t.audioUrl;
 				}
+				// if (t.audio.src === undefined){
+				// 	t.audio.src = t.audioUrl
+				// }
 				t.audio.load();
 			}
 		});

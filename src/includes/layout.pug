@@ -13,6 +13,7 @@ html(lang=zh)
       script(src="node_modules/zone.js/dist/zone.js")
       script(src="node_modules/systemjs/dist/system.src.js")
       script(src="systemjs.config.js")
+      script System.import('main.js').catch(function(err){ console.error(err); });
     block scripts
       script(src="bower_components/jquery/jquery.min.js")
       script(src="bower_components/bootstrap/dist/js/bootstrap.min.js")
